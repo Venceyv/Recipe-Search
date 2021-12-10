@@ -1,63 +1,65 @@
-import React, { useState } from "react";
-import "./App.css";
-import Axios from "axios";
-import { v4 as uuidv4 } from "uuid";
-import Recipe from "./components/Recipe";
-import Alert from "./components/Alert";
+import React, {useState} from 'react'
+import Axios from 'axios'
+// import {v5 as uuidv5} from 'uuid'
 
-function App() {
-  const [query, setQuery] = useState("");
-  const [recipes, setRecipes] = useState([]);
-  const [alert, setAlert] = useState("");
+import Recipe from './components/Recipe/Recipe'
+import AlertMessage from './components/AlertMessage/AlertMessage'
+import chief from './img/chief.png'
+import './App.css'
 
-  const APP_ID = "4e9f05eb";
-  const APP_KEY = "9b904d703fa0d46a88ce1ac63f29f498";
 
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+const App = () =>{
+    const [foodQuery, setFoodQuery] = useState("")
+    const [foodRecipe, setFoodRecipe] = useState([])
+    const [alert, setAlert] = useState("")
 
-  const getData = async () => {
-    if (query !== "") {
-      const result = await Axios.get(url);
-      if (!result.data.more) {
-        return setAlert("No food with such name");
-      }
-      console.log(result);
-      setRecipes(result.data.hits);
-      setQuery("");
-      setAlert("");
-    } else {
-      setAlert("Please fill the form");
+    const ID = 'b235abcb'
+    const KEY = '809ec57c6a89e2e94fc2eaf93b4f53cc'	 
+    const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${foodQuery}&app_id=${ID}&app_key=${KEY}`
+
+    const fetchData = async () => {
+        if(foodQuery){
+        const fetchedData = await Axios.get(URL)
+
+        if(!fetchedData.data.count)
+        {
+            return setAlert(`No Food With the Name "${foodQuery}" is found!!`)
+        }
+        setFoodRecipe(fetchedData.data.hits)
+        console.log(fetchedData)
+        setFoodQuery("")
+        setAlert("")
+        }
+        else{
+            setAlert('~ Please input a food name!! ~')
+        }
+
     }
-  };
+    
+    const onSubmit = (e) => {
+        e.preventDefault()
+        fetchData()
+    }
 
-  const onChange = e => setQuery(e.target.value);
+    const onChange = (e) => {
+        setFoodQuery(e.target.value)
+    }
 
-  const onSubmit = e => {
-    e.preventDefault();
-    getData();
-  };
-
-  return (
-    <div className="App">
-      <h1>Food Searching App</h1>
-      <form onSubmit={onSubmit} className="search-form">
-        {alert !== "" && <Alert alert={alert} />}
-        <input
-          type="text"
-          name="query"
-          onChange={onChange}
-          value={query}
-          autoComplete="off"
-          placeholder="Search Food"
-        />
-        <input type="submit" value="Search" />
-      </form>
-      <div className="recipes">
-        {recipes !== [] &&
-          recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
-      </div>
-    </div>
-  );
+    return(
+        <div className="App">
+            <h1>Dish Recipe Lookup</h1>
+            <img src={chief} alt={"chief"}></img>
+            <form onSubmit={onSubmit} className="search-form">
+                {alert && <AlertMessage alert={alert}/>}
+                <input type="text" placeholder="Anything on your mind?" autoComplete="off" onChange={onChange} value={foodQuery}/>
+                <input type="submit" value="search" />
+            </form>
+            <div className="recipes">
+                {foodRecipe && foodRecipe.map((recipe,i) => <Recipe recipe={recipe} key={i}/>)}
+            </div>
+        
+        </div>
+    )
 }
 
-export default App;
+export default App

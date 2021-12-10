@@ -1,50 +1,47 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700&display=swap");
-
 * {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Segoe UI";
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style-type: none;
   outline: none;
-}
-
-html {
-  font-size: 62.5%;
+  background-color: #23232e;
 }
 
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 h1 {
-  font-size: 8rem;
-  letter-spacing: 0.1rem;
+  font-size: 5rem;
   font-style: italic;
-  color: #40b48e;
-  text-shadow: 0 0.2rem 5rem rgb(119, 115, 115);
+  text-decoration-line: underline;
+  color: #ECBF88;
+  text-align: center;
+  text-shadow: 0 0.2rem 5rem rgb(255, 255, 255);
   text-transform: uppercase;
   margin: 4rem 0;
 }
 
 .search-form {
-  width: 60rem;
+  width: 90vw;
   height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #d3d3d3;
-  border-radius: 0.5rem;
+  border-radius: 50rem;
   margin-bottom: 5rem;
-  box-shadow: 1rem 2rem 5rem #aaa;
+  box-shadow: 0rem 0rem 2rem #aaa;
   position: relative;
 }
 
 .alert {
   position: absolute;
-  top: -3rem;
+  bottom: -3rem;
   left: 0;
   background-color: rgb(233, 72, 72);
   width: calc(100% - 0.4rem);
@@ -65,21 +62,25 @@ h1 {
   border: none;
   border-bottom: 0.1rem solid #ccc;
   margin: 0 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 50rem;
   height: 3rem;
 }
 
 .search-form input[type="text"] {
   padding: 0 0.5rem;
   width: 60%;
-  color: #555;
+  color: #ECBF88;
+  text-align: center;
+  font-family: "Verdana";
 }
 
 .search-form input[type="submit"] {
   width: 25%;
+  border: 2px solid black;
   text-transform: uppercase;
-  background-color: #40b48e;
-  color: #fff;
+  background-color: #ECBF88;
+  color: #2B2D32;
+  font-family: "Verdana";
 }
 
 .recipes {
@@ -99,22 +100,24 @@ h1 {
   background-color: #d3d3d3;
   padding: 2rem;
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   box-shadow: 2rem 3rem 5rem #aaa;
 }
 
 .recipe h2 {
-  background-color: rgba(161, 161, 161, 0.7);
+  font-family: "Verdana";
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
   padding: 0.3rem 0.5rem;
   position: absolute;
+  text-align: center;
   top: 2.5rem;
   left: 2.5rem;
   right: 2.5rem;
   font-size: 2.5rem;
   font-weight: 400;
   text-shadow: 0 0.5rem 0.5rem #555;
-  color: #fff;
+  color: #ECBF88;
 }
 
 .recipe img {
@@ -123,15 +126,18 @@ h1 {
 }
 
 .recipe a {
+  text-align: center;
+  margin: 0.5rem 0;
   font-size: 1.8rem;
-  color: #40b48e;
+  color: #ECBF88;
+  border-radius:0.5rem;
 }
 
 .recipe button {
   font-size: 2rem;
   text-transform: uppercase;
-  color: #fff;
-  background-color: #40b48e;
+  color: #2B2D32;
+  background-color: #ECBF88;
   border: none;
   border-radius: 0.5rem;
   height: 3rem;
@@ -146,14 +152,40 @@ h1 {
 
 .ingredient-list li {
   margin: 0.5rem 0;
+  background-color: #f0f0f0;
 }
 
 .ingredient-text {
   font-size: 1.5rem;
-  color: #888;
+  color: #23232e;
 }
 
 .ingredient-weight {
-  color: #40b48e;
+  color: #ECBF88;
+  font-weight:bold;
+  font-style: italic;
   font-size: 1.3rem;
+}
+
+@media screen and (max-width: 540px) {
+  h1 {
+    font-size: 3rem;
+    margin: 4rem 0;
+  }
+
+  .search-form {
+    width: 90vw;
+    height: 6rem;
+    box-shadow: 1rem 2rem 5rem #aaa;
+  }
+
+  .search-form input {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .alert {
+  bottom: -6rem;
+}
 }
