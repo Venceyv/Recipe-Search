@@ -19,7 +19,7 @@ h1 {
   font-size: 5rem;
   font-style: italic;
   text-decoration-line: underline;
-  color: #ECBF88;
+  color: #ecbf88;
   text-align: center;
   text-shadow: 0 0.2rem 5rem rgb(255, 255, 255);
   text-transform: uppercase;
@@ -69,7 +69,7 @@ h1 {
 .search-form input[type="text"] {
   padding: 0 0.5rem;
   width: 60%;
-  color: #ECBF88;
+  color: #ecbf88;
   text-align: center;
   font-family: "Verdana";
 }
@@ -78,8 +78,8 @@ h1 {
   width: 25%;
   border: 2px solid black;
   text-transform: uppercase;
-  background-color: #ECBF88;
-  color: #2B2D32;
+  background-color: #ecbf88;
+  color: #2b2d32;
   font-family: "Verdana";
 }
 
@@ -117,7 +117,7 @@ h1 {
   font-size: 2.5rem;
   font-weight: 400;
   text-shadow: 0 0.5rem 0.5rem #555;
-  color: #ECBF88;
+  color: #ecbf88;
 }
 
 .recipe img {
@@ -129,15 +129,15 @@ h1 {
   text-align: center;
   margin: 0.5rem 0;
   font-size: 1.8rem;
-  color: #ECBF88;
-  border-radius:0.5rem;
+  color: #ecbf88;
+  border-radius: 0.5rem;
 }
 
 .recipe button {
   font-size: 2rem;
   text-transform: uppercase;
-  color: #2B2D32;
-  background-color: #ECBF88;
+  color: #2b2d32;
+  background-color: #ecbf88;
   border: none;
   border-radius: 0.5rem;
   height: 3rem;
@@ -161,8 +161,8 @@ h1 {
 }
 
 .ingredient-weight {
-  color: #ECBF88;
-  font-weight:bold;
+  color: #ecbf88;
+  font-weight: bold;
   font-style: italic;
   font-size: 1.3rem;
 }
@@ -186,6 +186,6 @@ h1 {
 
 @media screen and (max-width: 670px) {
   .alert {
-  bottom: -6rem;
-}
+    bottom: -6rem;
+  }
 }
