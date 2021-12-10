@@ -1,6 +1,6 @@
 # Dish Recipe Lookup
 
-(Live site) [https://covid19-stats-track.vercel.app]
+(Live site) [https://what-dish-to-cook.vercel.app/]
 
 
 -----------------------------------------------------------
